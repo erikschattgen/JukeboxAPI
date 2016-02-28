@@ -68,10 +68,10 @@ public class JukeboxCommand implements CommandExecutor {
     private boolean URL(CommandSender sender){
         if(sender instanceof Player) {
             String URL = "https://mcjukebox.net/client?username=" + sender.getName() + "&server=" + Jukebox.getInstance().getId();
-            TextComponent message = new TextComponent("Click here to launch our custom music client.");
+            TextComponent message = new TextComponent("Klik hier om onze audio server te openen.");
             message.setColor(net.md_5.bungee.api.ChatColor.GOLD);
             message.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, URL));
-            message.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Launch client").create()));
+            message.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Klik hier").create()));
             ((Player) sender).spigot().sendMessage(message);
         }else {
             help(sender);
@@ -85,7 +85,7 @@ public class JukeboxCommand implements CommandExecutor {
             sender.sendMessage(ChatColor.RED + args[1] + " is not currently online.");
             return true;
         }
-        if(args[0].equalsIgnoreCase("music")) JukeboxAPI.play(playFor, args[2], ResourceType.MUSIC);
+        if(args[0].equalsIgnoreCase("muziek")) JukeboxAPI.play(playFor, args[2], ResourceType.MUSIC);
         else JukeboxAPI.play(playFor, args[2], ResourceType.SOUND_EFFECT);
         return true;
     }
